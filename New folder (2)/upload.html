@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Notes - Smart Learning Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+        }
+        .upload-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .upload-section input, .upload-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .upload-section button {
+            padding: 10px 20px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <section class="upload-section">
+        <h2>Upload Notes</h2>
+        <form id="uploadForm">
+            <input type="file" id="noteFile" required>
+            <input type="text" placeholder="Subject" id="subject" required>
+            <textarea placeholder="Description" id="description" rows="4" required></textarea>
+            <button type="submit">Upload</button>
+        </form>
+    </section>
+    <script>
+        document.getElementById("uploadForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const noteFile = document.getElementById("noteFile").files[0];
+            const subject = document.getElementById("subject").value;
+            const description = document.getElementById("description").value;
+
+            if (noteFile && subject && description) {
+                alert("Notes uploaded successfully!");
+                window.location.href = "index.html";
+            } else {
+                alert("Please fill all fields and select a file.");
+            }
+        });
+    </script>
+</body>
+</html>
