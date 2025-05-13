@@ -1,77 +1,163 @@
-<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Smart Learning Hub</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f3f4f6;
-            font-family: Arial, sans-serif;
-        }
-        .auth-section {
-           
-            background-color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-        .auth-section input {
-            
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .auth-section button {
-            
-            padding: 10px 20px;
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 105%;
-        }
-        .auth-section a {
-            color: #2563eb;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Smart Learning Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+
+    .left-panel {
+      flex: 1;
+      background: linear-gradient(to right, #2563eb, #1e40af);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 2rem;
+    }
+
+    .left-panel h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .left-panel p {
+      font-size: 1.1rem;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .right-panel {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8fafc;
+    }
+
+    .login-form {
+      background-color: #ffffff;
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .login-form h2 {
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+      text-align: center;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1.2rem;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    .login-form input:focus {
+      border-color: #2563eb;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+    }
+
+    .login-form button {
+      width: 100%;
+      padding: 0.75rem;
+      font-size: 1rem;
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .login-form button:hover {
+      background-color: #1e40af;
+    }
+
+    .login-form p {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .login-form a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .login-form a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .left-panel {
+        height: 200px;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <section class="auth-section">
+  <div class="container">
+    <div class="left-panel">
+      <h1>Welcome Back!</h1>
+      <p>Login to access and share academic notes on the Smart Learning Hub platform.</p>
+    </div>
+    <div class="right-panel">
+      <div class="login-form">
         <h2>Login</h2>
         <form id="loginForm">
-            <input type="text" placeholder="Username" id="loginUser" required>
-            <input type="password" placeholder="Password" id="loginPass" required>
-            <button type="submit" style="padding-left: 180px;" >Login</button>
+          <input type="text" placeholder="Username" id="loginUser" required />
+          <input type="password" placeholder="Password" id="loginPass" required />
+          <button type="submit">Login</button>
         </form>
         <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
-    </section>
-    <script>
-        document.getElementById("loginForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            const user = document.getElementById("loginUser").value;
-            const pass = document.getElementById("loginPass").value;
+      </div>
+    </div>
+  </div>
 
-            if (user === "admin" && pass === "1234") {
-                alert("Login successful");
-                window.location.href = "index.html";
-            } else {
-                alert("Invalid credentials");
-            }
-        });
-    </script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const user = document.getElementById("loginUser").value;
+      const pass = document.getElementById("loginPass").value;
+
+      if (user === "admin" && pass === "1234") {
+        alert("Login successful");
+        window.location.href = "main.html";
+      } else {
+        alert("Invalid credentials");
+      }
+    });
+  </script>
 </body>
 </html>
